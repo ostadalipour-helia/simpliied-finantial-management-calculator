@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="project1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Title</title>
+</head>
+<style>
+
+    #try{
+        width: 778px;
+    }
+    .box{
+        margin: 10px;
+        padding: 20px;
+        background-color: darkgray;
+        border-radius: 20px;
+
+    }
+    body{
+        margin: 10px;
+        background-color: rgba(103,108,102,0.20);
+        /*background-image: url("img/stone.jpg");
+        background-repeat: no-repeat;
+        background-size: contain;*/
+
+
+    }
+    #row2{
+        margin-top: 30px;
+    }
+    .boxx{
+        text-align: center;
+        font-size: 20px;
+        padding-bottom: 54px;
+    }
+    .num{
+        font-size: 35px;
+    }
+    #expense{
+        color: red;
+    }
+    th{
+        width: 200px;
+        text-align: center;
+        height: 50px;
+    }
+    #table{
+        text-align: center;
+    }
+    button{
+        margin: 2px;
+    }
+    td{
+        padding: 2px;
+    }
+
+</style>
+
+
+<div id="container" class="container-fluid form-group">
+    <h1>Finance Management Application</h1>
+    <div id="row1" class="row container-fluid">
+        <div class="box col-sm-5">
+            <h4><b>Please Enter Your Principal Amount</b></h4>
+            <input class="form-control" type="number" id="principal" min="1"><br>
+            <span id="errorSubmit" style="color: red"></span><br><br>
+            <button class="btn" onclick="Submit()" id="Submit" type="submit" >Submit</button>
+        </div>
+        <div class="box boxx col-sm-2"><b>INITIAL AMOUNT</b><br><br><br><span class="num" id="initialAmount">$ 0</span></div>
+        <div class="box boxx col-sm-2"><b>EXPENSES</b><br><br><br><span id="expense" class="num">$ 0</span></div>
+        <div class="box boxx col-sm-2"><b>BALANCE</b><br><br><br><span id="Balance" class="num">$ 0</span></div>
+    </div>
+    <div id="row2" class="row container-fluid">
+        <div class="form-group box col-sm-5">
+            <h4><b>Please Enter Name of Expense</b></h4>
+            <input class="form-control" type="text" id="expenseName"><br>
+            <span id="errorAddName" style="color: red"></span><br><br>
+            <h4><b>Please Enter Expense Amount</b></h4>
+            <input class="form-control" type="number" id="expenseAmount" min="0"><br>
+            <span id="errorAddExpense" style="color: red"></span><br><br>
+            <button class="btn" onclick="AddExpense()" type="submit" id="AddExpense" disabled >Add Expense</button>
+        </div>
+        <div id="try" class="box col-sm-6">
+            <button class="btn" data-toggle="collapse" style="margin-bottom: 5px " data-target="#openbox">List of Expenses</span></button>
+            <div id="openbox">
+                <table id="table">
+                    <tr>
+                        <th>Expense Name</th>
+                        <th>Expense Value</th>
+                        <th></th>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade in" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h1 class="modal-title">Edit</h1>
+                </header>
+                <section class="modal-body">
+                    <h4><b>Please Enter Name of Expense</b></h4>
+                    <input id="modalNE" class="form-control" type="text" placeholder=""><br>
+                    <h4><b>Please Enter Expense Amount</b></h4>
+                    <input id="modalEA" class="form-control" type="number" placeholder=""><br>
+                </section>
+                <footer class="modal-footer">
+                    <button class="btn btn-danger pull-left" data-dismiss="modal">Cancel</button>
+                    <button id="modalChange"onclick="modalAccept()" class="btn btn-success pull-right" data-dismiss="modal" >Accept</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
